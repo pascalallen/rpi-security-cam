@@ -1,7 +1,6 @@
 FROM --platform=linux/arm64 golang:1.22
 
 WORKDIR /app
-ADD . /app
 
 # Add Raspberry Pi apt archive — provides gstreamer1.0-libcamera and libcamera-ipa
 RUN apt-get update && apt-get install -y --no-install-recommends gnupg2 curl \
@@ -13,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends gnupg2 curl \
        > /etc/apt/preferences.d/raspberrypi \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     gstreamer1.0-tools \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
@@ -22,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     rpicam-apps \
     && rm -rf /var/lib/apt/lists/*
 
+ADD . /app
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o /rpi-security-cam .
 
 EXPOSE 8080
