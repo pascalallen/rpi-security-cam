@@ -1,0 +1,16 @@
+services:
+  rpi-security-cam:
+    build: .
+    container_name: rpi-security-cam
+    ports:
+      - "8080:8080"
+    volumes:
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/media0:/dev/media0
+      - /dev/media1:/dev/media1
+      - /dev/media2:/dev/media2
+      - /dev/media3:/dev/media3
+      - /dev/video0:/dev/video0
+    privileged: true
+    restart: unless-stopped
