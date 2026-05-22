@@ -2,9 +2,11 @@
 
 Live camera streaming on a Raspberry Pi, served over HTTP in Go.
 
-## Demo
+## Device
 
 ![Hardware setup](hardware.jpeg)
+
+## Demo
 
 ![Live view](live_view.png)
 
