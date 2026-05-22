@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 golang:1.26
+FROM --platform=linux/arm64 golang:1.26-bookworm
 
 WORKDIR /app
 
