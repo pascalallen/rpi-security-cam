@@ -2,6 +2,12 @@
 
 Live camera streaming on a Raspberry Pi, served over HTTP in Go.
 
+## Demo
+
+![Hardware setup](hardware.jpeg)
+
+![Live view](live_view.png)
+
 ## Features
 
 - MJPEG stream via GStreamer + libcamera
